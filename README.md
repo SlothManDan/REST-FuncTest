@@ -20,7 +20,7 @@ $ npm install -g functest
 $ functest COMMAND
 running command...
 $ functest (--version)
-functest/0.0.0 darwin-arm64 node-v22.3.0
+functest/0.0.1 darwin-arm64 node-v22.3.0
 $ functest --help [COMMAND]
 USAGE
   $ functest COMMAND
@@ -65,7 +65,7 @@ EXAMPLES
   hello friend from oclif! (./src/commands/hello/index.ts)
 ```
 
-_See code: [src/commands/hello/index.ts](https://github.com/SlothManDan/REST-FuncTest/blob/v0.0.0/src/commands/hello/index.ts)_
+_See code: [src/commands/hello/index.ts](https://github.com/SlothManDan/REST-FuncTest/blob/v0.0.1/src/commands/hello/index.ts)_
 
 ## `functest hello world`
 
@@ -83,7 +83,7 @@ EXAMPLES
   hello world! (./src/commands/hello/world.ts)
 ```
 
-_See code: [src/commands/hello/world.ts](https://github.com/SlothManDan/REST-FuncTest/blob/v0.0.0/src/commands/hello/world.ts)_
+_See code: [src/commands/hello/world.ts](https://github.com/SlothManDan/REST-FuncTest/blob/v0.0.1/src/commands/hello/world.ts)_
 
 ## `functest help [COMMAND]`
 
