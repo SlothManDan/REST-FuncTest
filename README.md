@@ -20,7 +20,7 @@ $ npm install -g functest
 $ functest COMMAND
 running command...
 $ functest (--version)
-functest/0.0.3 darwin-arm64 node-v22.3.0
+functest/0.0.4 darwin-arm64 node-v22.3.0
 $ functest --help [COMMAND]
 USAGE
   $ functest COMMAND
@@ -29,8 +29,6 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`functest hello PERSON`](#functest-hello-person)
-* [`functest hello world`](#functest-hello-world)
 * [`functest help [COMMAND]`](#functest-help-command)
 * [`functest java springboot`](#functest-java-springboot)
 * [`functest plugins`](#functest-plugins)
@@ -43,48 +41,6 @@ USAGE
 * [`functest plugins uninstall [PLUGIN]`](#functest-plugins-uninstall-plugin)
 * [`functest plugins unlink [PLUGIN]`](#functest-plugins-unlink-plugin)
 * [`functest plugins update`](#functest-plugins-update)
-
-## `functest hello PERSON`
-
-Say hello
-
-```
-USAGE
-  $ functest hello PERSON -f <value>
-
-ARGUMENTS
-  PERSON  Person to say hello to
-
-FLAGS
-  -f, --from=<value>  (required) Who is saying hello
-
-DESCRIPTION
-  Say hello
-
-EXAMPLES
-  $ functest hello friend --from oclif
-  hello friend from oclif! (./src/commands/hello/index.ts)
-```
-
-_See code: [src/commands/hello/index.ts](https://github.com/SlothManDan/REST-FuncTest/blob/v0.0.3/src/commands/hello/index.ts)_
-
-## `functest hello world`
-
-Say hello world
-
-```
-USAGE
-  $ functest hello world
-
-DESCRIPTION
-  Say hello world
-
-EXAMPLES
-  $ functest hello world
-  hello world! (./src/commands/hello/world.ts)
-```
-
-_See code: [src/commands/hello/world.ts](https://github.com/SlothManDan/REST-FuncTest/blob/v0.0.3/src/commands/hello/world.ts)_
 
 ## `functest help [COMMAND]`
 
@@ -108,20 +64,20 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.2.4
 
 ## `functest java springboot`
 
-describe the command here
+Automated Functionality test for java springboot REST API applications.
 
 ```
 USAGE
   $ functest java springboot
 
 DESCRIPTION
-  describe the command here
+  Automated Functionality test for java springboot REST API applications.
 
 EXAMPLES
   $ functest java springboot
 ```
 
-_See code: [src/commands/java/springboot.ts](https://github.com/SlothManDan/REST-FuncTest/blob/v0.0.3/src/commands/java/springboot.ts)_
+_See code: [src/commands/java/springboot.ts](https://github.com/SlothManDan/REST-FuncTest/blob/v0.0.4/src/commands/java/springboot.ts)_
 
 ## `functest plugins`
 
