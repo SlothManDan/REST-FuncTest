@@ -2,13 +2,13 @@ import { Command } from '@oclif/core'
 
 export default class JavaSpringboot extends Command {
 
-  static override description = 'describe the command here'
+  static override description = 'Automated Functionality test for java springboot REST API applications.'
 
   static override examples = [
     '<%= config.bin %> <%= command.id %>',
   ]
 
   public async run(): Promise<void> {
-    this.log('Springboot Test! TEST')
+    this.log('Springboot testing ...')
   }
 }
