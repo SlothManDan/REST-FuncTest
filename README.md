@@ -32,6 +32,7 @@ USAGE
 * [`functest hello PERSON`](#functest-hello-person)
 * [`functest hello world`](#functest-hello-world)
 * [`functest help [COMMAND]`](#functest-help-command)
+* [`functest java springboot`](#functest-java-springboot)
 * [`functest plugins`](#functest-plugins)
 * [`functest plugins add PLUGIN`](#functest-plugins-add-plugin)
 * [`functest plugins:inspect PLUGIN...`](#functest-pluginsinspect-plugin)
@@ -104,6 +105,23 @@ DESCRIPTION
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.2.4/src/commands/help.ts)_
+
+## `functest java springboot`
+
+describe the command here
+
+```
+USAGE
+  $ functest java springboot
+
+DESCRIPTION
+  describe the command here
+
+EXAMPLES
+  $ functest java springboot
+```
+
+_See code: [src/commands/java/springboot.ts](https://github.com/SlothManDan/REST-FuncTest/blob/v0.0.1/src/commands/java/springboot.ts)_
 
 ## `functest plugins`
 
