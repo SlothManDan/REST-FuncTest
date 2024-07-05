@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 export function getJavaFiles() {
-    const currentFilePath = new URL(import.meta.url).pathname;
+    const currentFilePath = process.cwd();
     const currentDirectory = path.dirname(currentFilePath);
     const javaFiles: string[] = [];
 
