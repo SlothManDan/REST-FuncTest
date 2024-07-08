@@ -1,6 +1,6 @@
 import { Command } from '@oclif/core'
 
-import { getJavaFiles } from '../../java/getjavafiles.js'
+import { getPort } from '../../java/springboot/getport.js'
 
 export default class JavaSpringboot extends Command {
 
@@ -12,8 +12,6 @@ export default class JavaSpringboot extends Command {
 
   public async run(): Promise<void> {
     this.log('Springboot testing ...')
-    for (const file of getJavaFiles()) {
-      this.log(file)
-    }
+    this.log('Port:', getPort)
   }
 }
