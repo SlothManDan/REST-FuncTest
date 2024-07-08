@@ -12,6 +12,6 @@ export default class JavaSpringboot extends Command {
 
   public async run(): Promise<void> {
     this.log('Springboot testing ...')
-    this.log('Port:', getPort)
+    this.log('Port:', getPort())
   }
 }
