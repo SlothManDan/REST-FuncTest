@@ -26,7 +26,7 @@ export function getModels() {
                 if (!models[className]) {
                     models[className] = [];
                 }
-            } else if (previousLine.trim().startsWith('@GeneratedValue')) {
+            } else if (previousLine.trim().endsWith(')')) {
                 ignoreVariable = true;
             } else if (trimmedLine.startsWith('private') && !ignoreVariable) {
                 const type = trimmedLine.split(' ')[1];
