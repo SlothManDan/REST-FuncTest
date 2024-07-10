@@ -22,6 +22,9 @@ export function getModels() {
         for (const line of lines) {
             if (line.startsWith('public class')) {
                 className = line.split(' ')[2];
+                if (!models[className]) {
+                    models[className] = [];
+                }
             } else if (previousLine.startsWith('@GeneratedValue')) {
                 ignoreVariable = true;
             } else if (line.startsWith('private') && !ignoreVariable) {
