@@ -15,10 +15,5 @@ export default class JavaSpringboot extends Command {
 
     const models: { [className: string]: { name: string; type: string; }[]; } = getModels();
     this.log('Models found:', models);
-    for (const model of Object.values(models)) {
-      for (const item of model) {
-        this.log(item.name, item.type);
-      }
-    }
   }
 }
