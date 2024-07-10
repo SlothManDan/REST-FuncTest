@@ -14,10 +14,9 @@ export default class JavaSpringboot extends Command {
     this.log('Springboot testing ...')
 
     const models: { [className: string]: { name: string; type: string; }[]; } = getModels();
-    for (const [className, model] of Object.entries(models)) {
-      this.log(className);
+    for (const model of Object.values(models)) {
       for (const item of model) {
-        this.log(item.name, item.type); // Now also outputs the className
+        this.log(item.name, item.type);
       }
     }
   }
