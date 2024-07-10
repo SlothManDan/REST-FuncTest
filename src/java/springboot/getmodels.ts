@@ -20,16 +20,17 @@ export function getModels() {
         let previousLine = '';
 
         for (const line of lines) {
+            const trimmedLine = line.trim();
             if (line.startsWith('public class')) {
                 className = line.split(' ')[2];
                 if (!models[className]) {
                     models[className] = [];
                 }
-            } else if (previousLine.startsWith('@GeneratedValue')) {
+            } else if (previousLine.trim().startsWith('@GeneratedValue')) {
                 ignoreVariable = true;
-            } else if (line.startsWith('private') && !ignoreVariable) {
-                const type = line.split(' ')[1];
-                const name = line.split(' ')[2];
+            } else if (trimmedLine.startsWith('private') && !ignoreVariable) {
+                const type = trimmedLine.split(' ')[1];
+                const name = trimmedLine.split(' ')[2].replace(';', '')
 
                 models[className].push({ name, type });
             }
