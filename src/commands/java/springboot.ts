@@ -17,10 +17,7 @@ export default class JavaSpringboot extends Command {
     const models: { [className: string]: { name: string; type: string; }[]; } = getModels();
     this.log('Models found:', models);
 
-    const controllerFiles = getPaths();
-
-    for (const controllerFile of controllerFiles) {
-      this.log('Controller file:', controllerFile);
-    }
+    const paths: { [controllerName: string]: { path: string; type: string; }[]; } = getPaths();
+    this.log('Paths found:', paths);
   }
 }
