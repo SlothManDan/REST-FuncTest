@@ -10,7 +10,7 @@ export function getModels() {
         return fileContent.includes('@Entity');
     });
 
-    const models: { [className: string]: { name: string, type: string }[] } = {};
+    const models: { [key: string]: { name: string, type: string }[] } = {};
 
     for (const file of entityFiles) {
         const fileContent = fs.readFileSync(file, 'utf8');
@@ -23,8 +23,9 @@ export function getModels() {
             const trimmedLine = line.trim();
             if (line.startsWith('public class')) {
                 className = line.split(' ')[2];
-                if (!models[className]) {
-                    models[className] = [];
+                const key = `${file}:${className}`
+                if (!models[key]) {
+                    models[key] = [];
                 }
             } else if (previousLine.trim().endsWith(')')) {
                 ignoreVariable = true;

@@ -13,7 +13,7 @@ export default class JavaSpringboot extends Command {
   public async run(): Promise<void> {
     this.log('Springboot testing ...')
 
-    const models: { [className: string]: { name: string; type: string; }[]; } = getModels();
+    const models: { [key: string]: { name: string; type: string; }[]; } = getModels();
     this.log('Models found:', Object.keys(models));
   }
 }
