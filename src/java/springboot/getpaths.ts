@@ -11,13 +11,12 @@ export function getPaths(){
         return fileContent.includes('@RestController');
     });
 
-    const paths: { [controllerName: string]: { path: string, type: string }[] } = {};
+    const paths: { [filePath: string]: { path: string, type: string }[] } = {};
 
     for (const file of controllerFiles){
         const fileContent = fs.readFileSync(file, 'utf8');
         const lines = fileContent.split('\n');
         const port = getPort();
-        let controllerName = '';
         let url = `http://localhost:${port}`;
 
         for (const line of lines){
@@ -27,38 +26,37 @@ export function getPaths(){
                 url = `${url}${path}`;
             }
             else if (line.startsWith('public class')){
-                controllerName = line.split(' ')[2];
-                if (!paths[controllerName]){
-                    paths[controllerName] = [];
+                if (!paths[file]){
+                    paths[file] = [];
                 }
             }
             else if (trimmedLine.startsWith('@GetMapping')){
                 if (trimmedLine.includes('"')){
                     const path = trimmedLine.split('"')[1];
-                    paths[controllerName].push({path: `${url}${path}`, type: 'GET'});
+                    paths[file].push({path: `${url}${path}`, type: 'GET'});
                 }else{
-                    paths[controllerName].push({path: url, type: 'GET'});
+                    paths[file].push({path: url, type: 'GET'});
                 }
             } else if (trimmedLine.startsWith('@PostMapping')){
                 if (trimmedLine.includes('"')){
                     const path = trimmedLine.split('"')[1];
-                    paths[controllerName].push({path: `${url}${path}`, type: 'POST'});
+                    paths[file].push({path: `${url}${path}`, type: 'POST'});
                 } else {                
-                    paths[controllerName].push({path: url, type: 'POST'});
+                    paths[file].push({path: url, type: 'POST'});
                 }
             } else if (trimmedLine.startsWith('@PutMapping')){
                 if (trimmedLine.includes('"')){
                     const path = trimmedLine.split('"')[1];
-                    paths[controllerName].push({path: `${url}${path}`, type: 'PUT'});
+                    paths[file].push({path: `${url}${path}`, type: 'PUT'});
                 } else {
-                    paths[controllerName].push({path: url, type: 'PUT'});
+                    paths[file].push({path: url, type: 'PUT'});
                 }
             } else if (trimmedLine.startsWith('@DeleteMapping')){
                 if (trimmedLine.includes('"')){
                     const path = trimmedLine.split('"')[1];
-                    paths[controllerName].push({path: `${url}${path}`, type: 'DELETE'});
+                    paths[file].push({path: `${url}${path}`, type: 'DELETE'});
                 } else {
-                    paths[controllerName].push({path: url, type: 'DELETE'});
+                    paths[file].push({path: url, type: 'DELETE'});
                 }
             }
         }
