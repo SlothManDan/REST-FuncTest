@@ -18,12 +18,13 @@ export function getModels() {
         let className = '';
         let ignoreVariable = false;
         let previousLine = '';
+        let key = '';
 
         for (const line of lines) {
             const trimmedLine = line.trim();
             if (line.startsWith('public class')) {
                 className = line.split(' ')[2];
-                const key = `${file}:${className}`
+                key = `${file}:${className}`
                 if (!models[key]) {
                     models[key] = [];
                 }
@@ -33,7 +34,7 @@ export function getModels() {
                 const type = trimmedLine.split(' ')[1];
                 const name = trimmedLine.split(' ')[2].replace(';', '')
 
-                models[className].push({ name, type });
+                models[key].push({ name, type });
             }
 
             ignoreVariable = false;
