@@ -1,6 +1,6 @@
 import { Command } from '@oclif/core'
 
-import { getModels } from '../../java/springboot/getmodels.js'
+import { linkModelsToPaths } from '../../java/springboot/linkmodelstopaths.js'
 
 export default class JavaSpringboot extends Command {
 
@@ -13,12 +13,7 @@ export default class JavaSpringboot extends Command {
   public async run(): Promise<void> {
     this.log('Springboot testing ...')
 
-    const models: { [key: string]: { name: string; type: string; }[]; } = getModels();
-    this.log('Models found:');
-    for (const key of Object.keys(models)) {
-      const path = key.split(':')[0];
-      const className = key.split(':')[1];
-      this.log(`Model: ${className} file: ${path}`);  
-    }
+    const repolink: { [modelName: string]: {modelFile: string, repoFile: string}[] } = linkModelsToPaths();
+    this.log(JSON.stringify(repolink));
   }
 }
