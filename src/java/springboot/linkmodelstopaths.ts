@@ -40,12 +40,41 @@ export function linkModelsToPaths(){
                             });
 
                             for (const file2 of firstSearch){
-                                if (!linkedModels[modelName]){
-                                    linkedModels[modelName] = [];
-                                    
+                                const fileContent = fs.readFileSync(file2, 'utf8');
+                                if (fileContent.includes(`@Service`)){
+                                    const lines = fileContent.split('\n');
+                                    for (const line of lines){
+                                        if (line.startsWith('public class')){
+                                            const trimmedLine = line.trim();
+                                            const serviceName = trimmedLine.split(' ')[2];
+
+                                            const filesToSearch2 = javaFiles.filter(f => f !== file2);
+                                            const secondSearch = filesToSearch2.filter((file) => {
+                                                const fileContent = fs.readFileSync(file, 'utf8');
+                                                return fileContent.includes(`${serviceName}`);
+                                            });
+
+                                            for (const file3 of secondSearch){
+                                                if (!linkedModels[modelName]){
+                                                    linkedModels[modelName] = [];
+                                                    
+                                                }
+                
+                                                linkedModels[modelName].push({modelKey: path, pathKey: file3});
+                                            }
+                                        }
+                                    }
+                                }else{
+                                    if (!linkedModels[modelName]){
+                                        linkedModels[modelName] = [];
+                                        
+                                    }
+    
+                                    linkedModels[modelName].push({modelKey: path, pathKey: file2});
+
                                 }
 
-                                linkedModels[modelName].push({modelKey: path, pathKey: file2});
+                                
                             }
                         }
                     }
