@@ -32,8 +32,7 @@ export function linkModelsToPaths(){
                         const path = key.split(':')[0];
                         const className = key.split(':')[1];
                         if (className === modelName){
-                            const indexToRemove = javaFiles.indexOf(file);
-                            const filesToSearch = javaFiles.splice(indexToRemove, 1);
+                            const filesToSearch = javaFiles.filter(f => f !== file);
 
                             const firstSearch = filesToSearch.filter((file) => {
                                 const fileContent = fs.readFileSync(file, 'utf8');
