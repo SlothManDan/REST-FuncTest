@@ -1,13 +1,11 @@
-import { get } from "node:http";
-
-export function getTester(path: string) {
-    let response = ""
-
-    get(path, (res) => {
-        res.on('data', (chunk) => {
-            response += chunk;
-        });
+export async function getTester(url: string) {
+    const response = await fetch(url, {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        method: 'GET',
     });
 
-    return response;
+    const result = await response.json();
+    return result;
 }
