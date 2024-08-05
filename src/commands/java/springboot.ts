@@ -1,6 +1,6 @@
 import { Command } from '@oclif/core'
 
-import { modelsToData } from '../../java/springboot/modelstodata.js'
+import { getPaths } from '../../java/springboot/getpaths.js'
 
 export default class JavaSpringboot extends Command {
 
@@ -13,7 +13,7 @@ export default class JavaSpringboot extends Command {
   public async run(): Promise<void> {
     this.log('Springboot testing ...')
 
-    const modelData = modelsToData();
-    this.log(JSON.stringify(modelData));
+    const pathData = getPaths();
+    this.log(JSON.stringify(pathData));
   }
 }
