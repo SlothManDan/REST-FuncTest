@@ -1,3 +1,4 @@
+/* eslint-disable max-depth */
 import fs from 'node:fs';
 
 import { getJavaFiles } from '../getjavafiles.js';
@@ -32,29 +33,53 @@ export function getPaths(){
             }
             else if (trimmedLine.startsWith('@GetMapping')){
                 if (trimmedLine.includes('"')){
-                    const path = trimmedLine.split('"')[1];
-                    paths[file].push({path: `${url}${path}`, type: 'GET'});
+                    if (trimmedLine.includes('{')){
+                        let path = trimmedLine.split('"')[1];
+                        path = path.replaceAll(/{[^}]+}/g, '1');
+                        paths[file].push({path: `${url}${path}`, type: 'GET'});
+                    }else{
+                        const path = trimmedLine.split('"')[1];
+                        paths[file].push({path: `${url}${path}`, type: 'GET'});
+                    }
                 }else{
                     paths[file].push({path: url, type: 'GET'});
                 }
             } else if (trimmedLine.startsWith('@PostMapping')){
                 if (trimmedLine.includes('"')){
-                    const path = trimmedLine.split('"')[1];
-                    paths[file].push({path: `${url}${path}`, type: 'POST'});
+                    if (trimmedLine.includes('{')){
+                        let path = trimmedLine.split('"')[1];
+                        path = path.replaceAll(/{[^}]+}/g, '1');
+                        paths[file].push({path: `${url}${path}`, type: 'POST'});
+                    }else{
+                        const path = trimmedLine.split('"')[1];
+                        paths[file].push({path: `${url}${path}`, type: 'POST'});
+                    }
                 } else {                
                     paths[file].push({path: url, type: 'POST'});
                 }
             } else if (trimmedLine.startsWith('@PutMapping')){
                 if (trimmedLine.includes('"')){
-                    const path = trimmedLine.split('"')[1];
-                    paths[file].push({path: `${url}${path}`, type: 'PUT'});
+                    if (trimmedLine.includes('{')){
+                        let path = trimmedLine.split('"')[1];
+                        path = path.replaceAll(/{[^}]+}/g, '1');
+                        paths[file].push({path: `${url}${path}`, type: 'PUT'});
+                    }else{
+                        const path = trimmedLine.split('"')[1];
+                        paths[file].push({path: `${url}${path}`, type: 'PUT'});
+                    }
                 } else {
                     paths[file].push({path: url, type: 'PUT'});
                 }
             } else if (trimmedLine.startsWith('@DeleteMapping')){
                 if (trimmedLine.includes('"')){
-                    const path = trimmedLine.split('"')[1];
-                    paths[file].push({path: `${url}${path}`, type: 'DELETE'});
+                    if (trimmedLine.includes('{')){
+                        let path = trimmedLine.split('"')[1];
+                        path = path.replaceAll(/{[^}]+}/g, '1');
+                        paths[file].push({path: `${url}${path}`, type: 'DELETE'});
+                    }else{
+                        const path = trimmedLine.split('"')[1];
+                        paths[file].push({path: `${url}${path}`, type: 'DELETE'});
+                    }
                 } else {
                     paths[file].push({path: url, type: 'DELETE'});
                 }
