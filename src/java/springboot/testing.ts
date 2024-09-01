@@ -1,4 +1,5 @@
 /* eslint-disable max-depth */
+// import { postTester } from "../../tester/posttester.js";
 import { getPaths } from "./getpaths.js";
 import { linkModelsToPaths } from "./linkmodelstopaths.js";
 import { modelsToData } from "./modelstodata.js";
@@ -28,6 +29,8 @@ export function testing(){
 
                                     case 'POST': {
                                         console.log('Testing POST method');
+                                        // postTester(path, dataFormat(data[key3]));
+                                        console.log(dataFormat(data[key3]));
                                         break;
                                     }
 
@@ -56,4 +59,15 @@ export function testing(){
     }
 
     console.log('Springboot Testing Completed');
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function dataFormat(data: { name: string, value: any }[]): { [key: string]: any } {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const formattedData: { [key: string]: any } = {};
+    for (const { name, value } of data) {
+        formattedData[name] = value;
+    }
+
+    return formattedData;
 }
