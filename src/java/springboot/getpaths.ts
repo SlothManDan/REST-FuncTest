@@ -49,10 +49,10 @@ export function getPaths(){
                     if (trimmedLine.includes('{')){
                         let path = trimmedLine.split('"')[1];
                         path = path.replaceAll(/{[^}]+}/g, '1');
-                        paths[file].push({path: `${url}${path}`, type: 'POST'});
+                        paths[file].unshift({path: `${url}${path}`, type: 'POST'});
                     }else{
                         const path = trimmedLine.split('"')[1];
-                        paths[file].push({path: `${url}${path}`, type: 'POST'});
+                        paths[file].unshift({path: `${url}${path}`, type: 'POST'});
                     }
                 } else {                
                     paths[file].push({path: url, type: 'POST'});
