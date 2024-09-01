@@ -6,13 +6,13 @@ export function modelsToData(){
     const data: { [key: string]: { name: string, value: any }[] } = {};
 
     for (const key of Object.keys(models)){
-        const className = key.split(':')[1];
+        const fileName = key.split(':')[0];
         for (const { name: modelName, type } of models[key]){
-            if (!data[className]){
-                data[className] = [];
+            if (!data[fileName]){
+                data[fileName] = [];
             }
 
-            data[className].push({ name: modelName, value: giveVarableData(type) });
+            data[fileName].push({ name: modelName, value: giveVarableData(type) });
         }
     }
 

@@ -1,3 +1,15 @@
+import { linkModelsToPaths } from "./linkmodelstopaths.js";
+import { modelsToData } from "./modelstodata.js";
+
 export function testing(){
-    console.log('Text from testing function');
+    console.log('Springboot Testing ...');
+
+    const data = modelsToData();
+    const linkedModels = linkModelsToPaths();
+
+    console.log(data);
+    console.log("--------------------");
+    console.log(linkedModels);
+
+    console.log('Springboot Testing Completed');
 }
