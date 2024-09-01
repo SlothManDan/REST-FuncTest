@@ -18,7 +18,32 @@ export function testing(){
                         if (key3 === modelKey){
                             for (const { path, type } of paths[key2]){
                                 console.log(`Testing ${path} with ${type} method`);
-                                console.log(`Data: ${JSON.stringify(data[key3])}`);
+                                switch (type) {
+                                    case 'GET':{
+                                        console.log('Testing GET method');
+                                        break;
+                                    }
+
+                                    case 'POST': {
+                                        console.log('Testing POST method');
+                                        break;
+                                    }
+
+                                    case 'PUT': {
+                                        console.log('Testing PUT method');
+                                        break;
+                                    }
+
+                                    case 'DELETE': {
+                                        console.log('Testing DELETE method');
+                                        break;
+                                    }
+
+                                    default: {
+                                        console.log('Unknown method');
+                                        break;
+                                    }
+                                }
                             }
                         }
                     }
