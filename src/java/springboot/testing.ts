@@ -1,5 +1,5 @@
 /* eslint-disable max-depth */
-// import { postTester } from "../../tester/posttester.js";
+import { postTester } from "../../tester/posttester.js";
 import { getPaths } from "./getpaths.js";
 import { linkModelsToPaths } from "./linkmodelstopaths.js";
 import { modelsToData } from "./modelstodata.js";
@@ -29,8 +29,7 @@ export function testing(){
 
                                     case 'POST': {
                                         console.log('Testing POST method');
-                                        // postTester(path, dataFormat(data[key3]));
-                                        console.log(dataFormat(data[key3]));
+                                        console.log(postTester(path, dataFormat(data[key3])));
                                         break;
                                     }
 
