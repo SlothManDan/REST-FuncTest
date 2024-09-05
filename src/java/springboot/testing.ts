@@ -29,7 +29,9 @@ export function testing(){
 
                                     case 'POST': {
                                         console.log('Testing POST method');
-                                        console.log(postTester(path, dataFormat(data[key3])));
+                                        postTester(path, dataFormat(data[key3])).then(result => {
+                                            console.log(result);
+                                        });
                                         break;
                                     }
 
