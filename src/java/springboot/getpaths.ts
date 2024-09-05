@@ -55,7 +55,7 @@ export function getPaths(){
                         paths[file].unshift({ path: `${url}${path}`, type: 'POST' });
                     }
                 } else {                
-                    paths[file].push({path: url, type: 'POST'});
+                    paths[file].unshift({path: url, type: 'POST'});
                 }
             } else if (trimmedLine.startsWith('@PutMapping')){
                 if (trimmedLine.includes('"')){
