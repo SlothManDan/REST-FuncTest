@@ -9,7 +9,7 @@ export async function deleteTester(url: string) {
             method: 'DELETE',
         });
     
-        result = await response.json();
+        result = await response.status;
     }catch(error){
         result = error;
     }
