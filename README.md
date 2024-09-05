@@ -20,7 +20,7 @@ $ npm install -g functest
 $ functest COMMAND
 running command...
 $ functest (--version)
-functest/0.0.39 darwin-arm64 node-v22.3.0
+functest/0.0.40 darwin-arm64 node-v22.3.0
 $ functest --help [COMMAND]
 USAGE
   $ functest COMMAND
@@ -77,7 +77,7 @@ EXAMPLES
   $ functest java springboot
 ```
 
-_See code: [src/commands/java/springboot.ts](https://github.com/SlothManDan/REST-FuncTest/blob/v0.0.39/src/commands/java/springboot.ts)_
+_See code: [src/commands/java/springboot.ts](https://github.com/SlothManDan/REST-FuncTest/blob/v0.0.40/src/commands/java/springboot.ts)_
 
 ## `functest plugins`
 
