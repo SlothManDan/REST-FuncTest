@@ -1,3 +1,4 @@
+/* eslint-disable no-await-in-loop */
 /* eslint-disable max-depth */
 import { getTester } from "../../tester/gettester.js";
 import { postTester } from "../../tester/posttester.js";
@@ -6,7 +7,7 @@ import { getPaths } from "./getpaths.js";
 import { linkModelsToPaths } from "./linkmodelstopaths.js";
 import { modelsToData } from "./modelstodata.js";
 
-export function testing(){
+export async function testing(){
     console.log('Springboot Testing ...');
 
     const data = modelsToData();
@@ -25,24 +26,21 @@ export function testing(){
                                 console.log(`Testing ${path} with ${type} method`);
                                 switch (type) {
                                     case 'GET':{
-                                        console.log('Testing GET method');
-                                        getTester(path).then(result => {
+                                        await getTester(path).then(result => {
                                             console.log(result);
                                         });
                                         break;
                                     }
 
                                     case 'POST': {
-                                        console.log('Testing POST method');
-                                        postTester(path, dataFormat(data[key3])).then(result => {
+                                        await postTester(path, dataFormat(data[key3])).then(result => {
                                             console.log(result);
                                         });
                                         break;
                                     }
 
                                     case 'PUT': {
-                                        console.log('Testing PUT method');
-                                        putTester(path, dataFormat(data[key3])).then(result => {
+                                        await putTester(path, dataFormat(data[key3])).then(result => {
                                             console.log(result);
                                         });
                                         break;
