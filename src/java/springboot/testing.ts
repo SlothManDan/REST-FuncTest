@@ -1,5 +1,6 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable max-depth */
+import { deleteTester } from "../../tester/deletetester.js";
 import { getTester } from "../../tester/gettester.js";
 import { postTester } from "../../tester/posttester.js";
 import { putTester } from "../../tester/puttester.js";
@@ -47,7 +48,9 @@ export async function testing(){
                                     }
 
                                     case 'DELETE': {
-                                        console.log('Testing DELETE method');
+                                        await deleteTester(path).then(result => {
+                                            console.log(result);
+                                        });
                                         break;
                                     }
 
