@@ -1,5 +1,7 @@
 /* eslint-disable max-depth */
+import { getTester } from "../../tester/gettester.js";
 import { postTester } from "../../tester/posttester.js";
+import { putTester } from "../../tester/puttester.js";
 import { getPaths } from "./getpaths.js";
 import { linkModelsToPaths } from "./linkmodelstopaths.js";
 import { modelsToData } from "./modelstodata.js";
@@ -24,6 +26,9 @@ export function testing(){
                                 switch (type) {
                                     case 'GET':{
                                         console.log('Testing GET method');
+                                        getTester(path).then(result => {
+                                            console.log(result);
+                                        });
                                         break;
                                     }
 
@@ -37,6 +42,9 @@ export function testing(){
 
                                     case 'PUT': {
                                         console.log('Testing PUT method');
+                                        putTester(path, dataFormat(data[key3])).then(result => {
+                                            console.log(result);
+                                        });
                                         break;
                                     }
 
