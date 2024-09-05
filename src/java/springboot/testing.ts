@@ -15,8 +15,6 @@ export async function testing(){
     const linkedModels = linkModelsToPaths();
     const paths = getPaths();
 
-    console.log(paths);
-
     for (const key of Object.keys(linkedModels)){
         for (const { modelKey, pathKey } of linkedModels[key]){
             for (const key2 of Object.keys(paths)){
