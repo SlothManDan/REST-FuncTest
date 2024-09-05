@@ -1,11 +1,18 @@
 export async function deleteTester(url: string) {
-    const response = await fetch(url, {
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        method: 'DELETE',
-    });
+    let result = null;
 
-    const result = await response.json();
+    try{
+        const response = await fetch(url, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            method: 'DELETE',
+        });
+    
+        result = await response.json();
+    }catch(error){
+        result = error;
+    }
+    
     return result;
 }

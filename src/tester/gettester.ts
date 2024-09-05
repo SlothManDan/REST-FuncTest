@@ -1,11 +1,18 @@
 export async function getTester(url: string) {
-    const response = await fetch(url, {
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        method: 'GET',
-    });
+    let result = null;
+    
+    try {
+        const response = await fetch(url, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            method: 'GET',
+        });
 
-    const result = await response.json();
+        result = await response.json();
+    } catch (error) {
+        result = error;
+    }
+
     return result;
 }
