@@ -1,7 +1,7 @@
 {
   "name": "functest",
   "description": "A Cli for automated REST API Functional testing",
-  "version": "0.0.36",
+  "version": "0.0.37",
   "author": "Daniel Steeples",
   "bin": {
     "functest": "./bin/run.js"
